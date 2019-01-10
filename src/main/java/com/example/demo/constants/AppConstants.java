@@ -38,6 +38,13 @@ public class AppConstants {
 	public final static String REMOVED = "REMOVED";
 	public final static String INSERTED = "INSERTED";
 
+	// postgres JDBC vars
+
+	public final static String url = "jdbc:postgresql://localhost/dvdrental";
+	public final static String user = "postgres";
+	public final static String password = "spectrum9";
+	// spring.datasource.url=jdbc:postgresql://localhost:5432/dvdrental
+
 	public static void main(String args[]) {
 //		System.out.println("? quantifier ....");
 //		// ! equals !=
