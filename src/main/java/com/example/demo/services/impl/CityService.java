@@ -35,25 +35,24 @@ public class CityService implements ICityService {
 		return cities;
 	}
 
-	public String getSummit() {
+	private String getSummit() {
 		DatabaseAccessPG databaseAccessPG = new DatabaseAccessPG();
 		Connection connection = databaseAccessPG.getConnection();
-		String SQL = "SELECT * FROM actor";
+		String SQL = "SELECT * FROM actor where last_name ILIKE 'Wahlberg'";
 
 		try {
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(SQL);
 
 			while (rs.next()) {
-				System.out.println("FOUND " + rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
+				System.out.println("\tFOUND -> " + rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
 			}
-
 		} catch (SQLException ex) {
 			System.out.println(ex.getMessage());
 		} finally {
 			try {
 				connection.close();
-				System.out.println("CONNECTION CLOSED!!!!");
+				System.out.println("\nCONNECTION CLOSED!!!!");
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -61,5 +60,4 @@ public class CityService implements ICityService {
 
 		return "";
 	}
-
 }
